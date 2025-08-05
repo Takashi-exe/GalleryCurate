@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if search %}
-<div class="alert alert-info text-center mt-3">
+<div class="alert alert-info bg-theme text-center mt-3">
     {% if search == 'Random Selection' %}
-    Here's something for you;
+    You might or migh not like these;
     {% else %}
     Showing results for "{{ search }}"
     {% endif %}
