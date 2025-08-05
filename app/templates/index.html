@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="text-center">
+    <h1 class="fw-bold">Welcome to the Art Gallery Curator</h1>
+    <p class="lead">Search for artworks from The Met's collection by artist, style, or keyword.</p>
+    <form method="POST" action="{{ url_for('main.home') }}">
+        <div class="mb-3">
+            <input type="text" name="search" class="form-control search-bar" placeholder="e.g., Monet, Impressionism">
+        </div>
+        <button type="submit" class="btn home-btn" name="action" value="search">Search</button>
+        <button type="submit" class="btn home-btn" name="action" value="randomize">Randomize</button>
+    </form>
+</div>
+{% endblock %}

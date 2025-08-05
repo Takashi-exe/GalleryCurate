@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if search %}
+<div class="alert alert-info text-center mt-3">
+    {% if search == 'Random Selection' %}
+    Here's something for you;
+    {% else %}
+    Showing results for "{{ search }}"
+    {% endif %}
+</div>
+{% endif %}
+
+<div class="row">
+    {% for artwork in artworks %}
+    <div class="col-md-3 mb-4">
+        <div class="card bg-card-theme">
+            {% if artwork.image_url and artwork.image_url != 'N/A' %}
+            <img src="{{ artwork.image_url }}" class="card-img-top" alt="{{ artwork.title }}" style="height: 200px; object-fit: cover;">
+            {% else %}
+            <div class="card-img-top bg-secondary text-white text-center" style="height: 200px; line-height: 200px;">No Image</div>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ artwork.title }}</h5>
+                <p class="card-text">
+                    <strong>Style:</strong> {{ artwork.style }}<br>
+                    <strong>Year:</strong> {{ artwork.year }}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <p>No artworks found. Try searching for something!</p>
+    {% endfor %}
+</div>
+{% endblock %}
